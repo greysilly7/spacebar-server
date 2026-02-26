@@ -87,13 +87,13 @@ export function route(opts: RouteOptions) {
             const result = opts.requestBody.safeParse(req.body);
             if (!result.success) {
                 const fields: Record<string, { code?: string; message: string }> = {};
-                result.error.issues.forEach((x: z.ZodIssue) => {
+                result.error.issues.forEach((x: z.core.$ZodIssue) => {
                     fields[x.path.join(".")] = {
                         code: x.code,
                         message: x.message,
                     };
                 });
-                if (process.env.LOG_VALIDATION_ERRORS) console.log(`[VALIDATION ERROR] ${req.method} ${req.originalUrl} -`, result.error.format());
+                if (process.env.LOG_VALIDATION_ERRORS) console.log(`[VALIDATION ERROR] ${req.method} ${req.originalUrl} -`, z.treeifyError(result.error));
                 throw FieldErrors(fields);
             }
             req.body = result.data;

@@ -19,15 +19,17 @@
 import { z } from "zod";
 import { ChannelCreateSchema } from "./ChannelCreateSchema";
 
-export const GuildCreateSchema = z.object({
-    name: z.string().max(100).optional(),
-    region: z.string().optional(),
-    icon: z.string().nullable().optional(),
-    channels: z.array(ChannelCreateSchema).optional(),
-    system_channel_id: z.string().optional(),
-    rules_channel_id: z.string().optional(),
-    guild_template_code: z.string().optional(),
-    staff_only: z.boolean().optional(),
-});
+export const GuildCreateSchema = z
+    .object({
+        name: z.string().max(100),
+        region: z.string(),
+        icon: z.string().nullable(),
+        channels: z.array(ChannelCreateSchema),
+        system_channel_id: z.string(),
+        rules_channel_id: z.string(),
+        guild_template_code: z.string(),
+        staff_only: z.boolean(),
+    })
+    .partial();
 
 export type GuildCreateSchema = z.infer<typeof GuildCreateSchema>;

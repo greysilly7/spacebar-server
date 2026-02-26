@@ -18,22 +18,22 @@
 
 import { z } from "zod";
 
-export const RoleModifySchema = z.object({
-    name: z.string().optional(),
-    permissions: z.string().optional(),
-    color: z.number().optional(),
-    hoist: z.boolean().optional(),
-    mentionable: z.boolean().optional(),
-    position: z.number().optional(),
-    icon: z.string().optional(),
-    unicode_emoji: z.string().optional(),
-    colors: z
-        .object({
+export const RoleModifySchema = z
+    .object({
+        name: z.string(),
+        permissions: z.string(),
+        color: z.number(),
+        hoist: z.boolean(),
+        mentionable: z.boolean(),
+        position: z.number(),
+        icon: z.string(),
+        unicode_emoji: z.string(),
+        colors: z.object({
             primary_color: z.number(),
             secondary_color: z.number().nullable().optional(),
             tertiary_color: z.number().nullable().optional(),
-        })
-        .optional(),
-});
+        }),
+    })
+    .partial();
 
 export type RoleModifySchema = z.infer<typeof RoleModifySchema>;

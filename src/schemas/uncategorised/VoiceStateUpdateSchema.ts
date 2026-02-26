@@ -25,7 +25,7 @@ export const VoiceStateUpdateSchema = z.object({
     self_deaf: z.boolean(),
     self_video: z.boolean().optional(),
     preferred_region: z.string().optional(),
-    request_to_speak_timestamp: z.any().optional(),
+    request_to_speak_timestamp: z.iso.datetime().optional(),
     suppress: z.boolean().optional(),
     flags: z.number().optional(),
 });

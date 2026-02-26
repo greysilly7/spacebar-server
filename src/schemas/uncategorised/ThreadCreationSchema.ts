@@ -29,24 +29,24 @@ export const ThreadCreationSchema = z.object({
     location: z.string().optional(),
     message: z
         .object({
-            content: z.string().optional(),
-            embeds: z.array(z.any()).optional(),
+            content: z.string(),
+            embeds: z.array(z.any()),
             allowed_mentions: z
                 .object({
-                    parse: z.array(z.string()).optional(),
-                    roles: z.array(z.string()).optional(),
-                    users: z.array(z.string()).optional(),
-                    replied_user: z.boolean().optional(),
+                    parse: z.array(z.string()),
+                    roles: z.array(z.string()),
+                    users: z.array(z.string()),
+                    replied_user: z.boolean(),
                 })
-                .optional(),
-            components: z.array(z.any()).nullable().optional(),
-            sticker_ids: z.array(z.string()).optional(),
-            activity: z.any().optional(),
-            application_id: z.string().optional(),
-            flags: z.number().optional(),
-            attachments: z.array(z.union([MessageCreateAttachment, MessageCreateCloudAttachment])).optional(),
+                .partial(),
+            components: z.array(z.any()).nullable(),
+            sticker_ids: z.array(z.string()),
+            activity: z.any(),
+            application_id: z.string(),
+            flags: z.number(),
+            attachments: z.array(z.union([MessageCreateAttachment, MessageCreateCloudAttachment])),
         })
-        .optional(),
+        .partial(),
 });
 
 export type ThreadCreationSchema = z.infer<typeof ThreadCreationSchema>;

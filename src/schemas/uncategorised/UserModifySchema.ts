@@ -19,20 +19,22 @@
 import { z } from "zod";
 import { User_DisplayNameEffect, User_DisplayNameFont } from "discord-protos";
 
-export const UserModifySchema = z.object({
-    username: z.string().min(2).optional(),
-    avatar: z.string().nullable().optional(),
-    bio: z.string().optional(),
-    accent_color: z.number().optional(),
-    banner: z.string().nullable().optional(),
-    password: z.string().min(1).max(72).optional(),
-    new_password: z.string().min(1).max(72).optional(),
-    code: z.string().min(6).max(6).optional(),
-    email: z.email().optional(),
-    discriminator: z.string().min(4).max(4).optional(),
-    display_name_colors: z.array(z.number()).optional(),
-    display_name_effect_id: z.enum(User_DisplayNameEffect).optional(),
-    display_name_font_id: z.enum(User_DisplayNameFont).optional(),
-});
+export const UserModifySchema = z
+    .object({
+        username: z.string().min(2),
+        avatar: z.string().nullable(),
+        bio: z.string(),
+        accent_color: z.number(),
+        banner: z.string().nullable(),
+        password: z.string().min(1).max(72),
+        new_password: z.string().min(1).max(72),
+        code: z.string().min(6).max(6),
+        email: z.email(),
+        discriminator: z.string().min(4).max(4),
+        display_name_colors: z.array(z.number()),
+        display_name_effect_id: z.enum(User_DisplayNameEffect),
+        display_name_font_id: z.enum(User_DisplayNameFont),
+    })
+    .partial();
 
 export type UserModifySchema = z.infer<typeof UserModifySchema>;

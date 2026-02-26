@@ -30,20 +30,24 @@ export const MessageCreateCloudAttachment = z.object({
     original_content_type: z.string().optional(),
 });
 
-const AllowedMentionsSchema = z.object({
-    parse: z.array(z.string()).optional(),
-    roles: z.array(z.string()).optional(),
-    users: z.array(z.string()).optional(),
-    replied_user: z.boolean().optional(),
-});
+const AllowedMentionsSchema = z
+    .object({
+        parse: z.array(z.string()),
+        roles: z.array(z.string()),
+        users: z.array(z.string()),
+        replied_user: z.boolean(),
+    })
+    .partial();
 
-const MessageReferenceSchema = z.object({
-    message_id: z.string().optional(),
-    channel_id: z.string().optional(),
-    guild_id: z.string().optional(),
-    fail_if_not_exists: z.boolean().optional(),
-    type: z.number().optional(),
-});
+const MessageReferenceSchema = z
+    .object({
+        message_id: z.string(),
+        channel_id: z.string(),
+        guild_id: z.string(),
+        fail_if_not_exists: z.boolean(),
+        type: z.number(),
+    })
+    .partial();
 
 export const PollCreationSchema = z.object({
     question: z.object({ text: z.string().optional() }),
@@ -53,31 +57,33 @@ export const PollCreationSchema = z.object({
     layout_type: z.number().optional(),
 });
 
-export const MessageCreateSchema = z.object({
-    type: z.number().optional(),
-    content: z.string().optional(),
-    mobile_network_type: z.string().optional(),
-    nonce: z.string().optional(),
-    channel_id: z.string().optional(),
-    tts: z.boolean().optional(),
-    flags: z.number().optional(),
-    embeds: z.array(z.any()).nullable().optional(),
-    embed: z.any().nullable().optional(),
-    allowed_mentions: AllowedMentionsSchema.optional(),
-    message_reference: MessageReferenceSchema.optional(),
-    payload_json: z.string().optional(),
-    file: z.object({ filename: z.string() }).optional(),
-    attachments: z.array(z.union([MessageCreateAttachment, MessageCreateCloudAttachment])).optional(),
-    sticker_ids: z.array(z.string()).nullable().optional(),
-    components: z.array(z.any()).nullable().optional(),
-    poll: PollCreationSchema.optional(),
-    enforce_nonce: z.boolean().optional(),
-    applied_tags: z.array(z.string()).optional(),
-    thread_name: z.string().optional(),
-    avatar_url: z.string().optional(),
-    interaction: z.any().optional(),
-    interaction_metadata: z.any().optional(),
-});
+export const MessageCreateSchema = z
+    .object({
+        type: z.number(),
+        content: z.string(),
+        mobile_network_type: z.string(),
+        nonce: z.string(),
+        channel_id: z.string(),
+        tts: z.boolean(),
+        flags: z.number(),
+        embeds: z.array(z.any()).nullable(),
+        embed: z.any().nullable(),
+        allowed_mentions: AllowedMentionsSchema,
+        message_reference: MessageReferenceSchema,
+        payload_json: z.string(),
+        file: z.object({ filename: z.string() }),
+        attachments: z.array(z.union([MessageCreateAttachment, MessageCreateCloudAttachment])),
+        sticker_ids: z.array(z.string()).nullable(),
+        components: z.array(z.any()).nullable(),
+        poll: PollCreationSchema,
+        enforce_nonce: z.boolean(),
+        applied_tags: z.array(z.string()),
+        thread_name: z.string(),
+        avatar_url: z.string(),
+        interaction: z.any(),
+        interaction_metadata: z.any(),
+    })
+    .partial();
 
 export type MessageCreateSchema = z.infer<typeof MessageCreateSchema>;
 export type PollCreationSchema = z.infer<typeof PollCreationSchema>;

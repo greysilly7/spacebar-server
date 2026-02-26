@@ -18,22 +18,36 @@
 
 import { z } from "zod";
 
-export const ConnectedAccountSchema = z.object({
-    external_id: z.string(),
-    user_id: z.string(),
-    token_data: z.any().optional(),
-    friend_sync: z.boolean().optional(),
-    name: z.string(),
-    revoked: z.boolean().optional(),
-    show_activity: z.number().optional(),
-    type: z.string(),
-    verified: z.boolean().optional(),
-    visibility: z.number().optional(),
-    integrations: z.array(z.string()).optional(),
-    metadata_: z.any().optional(),
-    metadata_visibility: z.number().optional(),
-    two_way_link: z.boolean().optional(),
-    access_token: z.string().optional(),
-});
+export const ConnectedAccountSchema = z
+    .object({
+        external_id: z.string(),
+        user_id: z.string(),
+        token_data: z.any(),
+        friend_sync: z.boolean(),
+        name: z.string(),
+        revoked: z.boolean(),
+        show_activity: z.number(),
+        type: z.string(),
+        verified: z.boolean(),
+        visibility: z.number(),
+        integrations: z.array(z.string()),
+        metadata_: z.any(),
+        metadata_visibility: z.number(),
+        two_way_link: z.boolean(),
+        access_token: z.string(),
+    })
+    .partial({
+        token_data: true,
+        friend_sync: true,
+        revoked: true,
+        show_activity: true,
+        verified: true,
+        visibility: true,
+        integrations: true,
+        metadata_: true,
+        metadata_visibility: true,
+        two_way_link: true,
+        access_token: true,
+    });
 
 export type ConnectedAccountSchema = z.infer<typeof ConnectedAccountSchema>;

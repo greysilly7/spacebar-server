@@ -18,19 +18,32 @@
 
 import { z } from "zod";
 
-export const RegisterSchema = z.object({
-    username: z.string().min(2),
-    password: z.string().min(1).max(72).optional(),
-    consent: z.boolean(),
-    email: z.email().optional(),
-    fingerprint: z.string().optional(),
-    invite: z.string().optional(),
-    date_of_birth: z.union([z.string(), z.date()]).optional(),
-    gift_code_sku_id: z.string().optional(),
-    captcha_key: z.string().optional(),
-    promotional_email_opt_in: z.boolean().optional(),
-    unique_username_registration: z.boolean().optional(),
-    global_name: z.string().optional(),
-});
+export const RegisterSchema = z
+    .object({
+        username: z.string().min(2),
+        password: z.string().min(1).max(72),
+        consent: z.boolean(),
+        email: z.email(),
+        fingerprint: z.string(),
+        invite: z.string(),
+        date_of_birth: z.union([z.string(), z.date()]),
+        gift_code_sku_id: z.string(),
+        captcha_key: z.string(),
+        promotional_email_opt_in: z.boolean(),
+        unique_username_registration: z.boolean(),
+        global_name: z.string(),
+    })
+    .partial({
+        password: true,
+        email: true,
+        fingerprint: true,
+        invite: true,
+        date_of_birth: true,
+        gift_code_sku_id: true,
+        captcha_key: true,
+        promotional_email_opt_in: true,
+        unique_username_registration: true,
+        global_name: true,
+    });
 
 export type RegisterSchema = z.infer<typeof RegisterSchema>;
