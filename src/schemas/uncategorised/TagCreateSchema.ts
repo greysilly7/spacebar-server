@@ -20,9 +20,9 @@ import { z } from "zod";
 
 export const TagCreateSchema = z.object({
     name: z.string(),
-    moderated: z.boolean().nullable().optional(),
-    emoji_id: z.string().nullable().optional(),
-    emoji_name: z.string().nullable().optional(),
+    moderated: z.boolean().nullish(),
+    emoji_id: z.string().nullish(),
+    emoji_name: z.string().nullish(),
 });
 
 export type TagCreateSchema = z.infer<typeof TagCreateSchema>;

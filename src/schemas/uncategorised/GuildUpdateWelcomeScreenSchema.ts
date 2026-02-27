@@ -19,7 +19,7 @@
 import { z } from "zod";
 
 export const GuildUpdateWelcomeScreenSchema = z.object({
-    description: z.string().nullable().optional(),
+    description: z.string().nullish(),
     welcome_channels: z
         .array(
             z.object({

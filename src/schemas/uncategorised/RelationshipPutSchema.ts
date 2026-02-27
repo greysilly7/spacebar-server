@@ -21,7 +21,7 @@ import { z } from "zod";
 export const RelationshipPutSchema = z.object({
     type: z.number().optional(),
     confirm_stranger_request: z.boolean().optional(),
-    nickname: z.string().nullable().optional(),
+    nickname: z.string().nullish(),
 });
 
 export type RelationshipPutSchema = z.infer<typeof RelationshipPutSchema>;

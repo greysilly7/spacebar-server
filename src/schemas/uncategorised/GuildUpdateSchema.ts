@@ -20,8 +20,8 @@ import { z } from "zod";
 import { GuildCreateSchema } from "./GuildCreateSchema";
 
 export const GuildUpdateSchema = GuildCreateSchema.omit({ channels: true }).extend({
-    banner: z.string().nullable().optional(),
-    splash: z.string().nullable().optional(),
+    banner: z.string().nullish(),
+    splash: z.string().nullish(),
     description: z.string().optional(),
     features: z.array(z.string()).optional(),
     verification_level: z.number().optional(),
@@ -34,7 +34,7 @@ export const GuildUpdateSchema = GuildCreateSchema.omit({ channels: true }).exte
     preferred_locale: z.string().optional(),
     premium_progress_bar_enabled: z.boolean().optional(),
     discovery_splash: z.string().optional(),
-    safety_alerts_channel_id: z.string().nullable().optional(),
+    safety_alerts_channel_id: z.string().nullish(),
 });
 
 export type GuildUpdateSchema = z.infer<typeof GuildUpdateSchema>;

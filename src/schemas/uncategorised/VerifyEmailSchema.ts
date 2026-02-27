@@ -19,7 +19,7 @@
 import { z } from "zod";
 
 export const VerifyEmailSchema = z.object({
-    captcha_key: z.string().nullable().optional(),
+    captcha_key: z.string().nullish(),
     token: z.string(),
 });
 

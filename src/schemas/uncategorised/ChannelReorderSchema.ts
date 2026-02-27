@@ -23,7 +23,7 @@ export const ChannelReorderSchema = z.array(
         id: z.string(),
         position: z.number().optional(),
         lock_permissions: z.boolean().optional(),
-        parent_id: z.string().nullable().optional(),
+        parent_id: z.string().nullish(),
     }),
 );
 

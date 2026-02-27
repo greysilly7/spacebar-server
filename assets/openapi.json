@@ -1057,6 +1057,438 @@
                     }
                 }
             },
+            "ActivitySchema": {
+                "type": "object",
+                "properties": {
+                    "afk": {
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "activities": {
+                        "type": "array",
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "number"
+                                        },
+                                        "url": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "created_at": {
+                                            "type": "number"
+                                        },
+                                        "timestamps": {
+                                            "type": "object",
+                                            "properties": {
+                                                "start": {
+                                                    "type": "number"
+                                                },
+                                                "end": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "application_id": {
+                                            "type": "string"
+                                        },
+                                        "details": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "state": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "emoji": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "animated": {
+                                                            "type": "boolean"
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "party": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "size": {
+                                                    "minItems": 2,
+                                                    "maxItems": 2,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "assets": {
+                                            "type": "object",
+                                            "properties": {
+                                                "large_image": {
+                                                    "type": "string"
+                                                },
+                                                "large_text": {
+                                                    "type": "string"
+                                                },
+                                                "small_image": {
+                                                    "type": "string"
+                                                },
+                                                "small_text": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "secrets": {
+                                            "type": "object",
+                                            "properties": {
+                                                "join": {
+                                                    "type": "string"
+                                                },
+                                                "spectate": {
+                                                    "type": "string"
+                                                },
+                                                "match": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "instance": {
+                                            "type": "boolean"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "sync_id": {
+                                            "type": "string"
+                                        },
+                                        "metadata": {
+                                            "type": "object",
+                                            "properties": {
+                                                "context_uri": {
+                                                    "type": "string"
+                                                },
+                                                "album_id": {
+                                                    "type": "string"
+                                                },
+                                                "artist_ids": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "session_id": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "flags": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "type"
+                                    ],
+                                    "additionalProperties": {}
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "number"
+                                        },
+                                        "url": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "created_at": {
+                                            "type": "number"
+                                        },
+                                        "timestamps": {
+                                            "type": "object",
+                                            "properties": {
+                                                "start": {
+                                                    "type": "number"
+                                                },
+                                                "end": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "application_id": {
+                                            "type": "string"
+                                        },
+                                        "details": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "state": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "emoji": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "animated": {
+                                                            "type": "boolean"
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "party": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "size": {
+                                                    "minItems": 2,
+                                                    "maxItems": 2,
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "assets": {
+                                            "type": "object",
+                                            "properties": {
+                                                "large_image": {
+                                                    "type": "string"
+                                                },
+                                                "large_text": {
+                                                    "type": "string"
+                                                },
+                                                "small_image": {
+                                                    "type": "string"
+                                                },
+                                                "small_text": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "secrets": {
+                                            "type": "object",
+                                            "properties": {
+                                                "join": {
+                                                    "type": "string"
+                                                },
+                                                "spectate": {
+                                                    "type": "string"
+                                                },
+                                                "match": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "instance": {
+                                            "type": "boolean"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "sync_id": {
+                                            "type": "string"
+                                        },
+                                        "metadata": {
+                                            "type": "object",
+                                            "properties": {
+                                                "context_uri": {
+                                                    "type": "string"
+                                                },
+                                                "album_id": {
+                                                    "type": "string"
+                                                },
+                                                "artist_ids": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "session_id": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "flags": {
+                                            "type": "number"
+                                        },
+                                        "platform": {
+                                            "type": "string"
+                                        },
+                                        "supported_platforms": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "parent_application_id": {
+                                            "type": "string"
+                                        },
+                                        "status_display_type": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "details_url": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "state_url": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "null"
+                                                }
+                                            ]
+                                        },
+                                        "buttons": {
+                                            "maxItems": 2,
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "type"
+                                    ],
+                                    "additionalProperties": {}
+                                }
+                            ]
+                        }
+                    },
+                    "since": {
+                        "anyOf": [
+                            {
+                                "type": "number"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "status"
+                ]
+            },
             "IdentifySchema": {
                 "type": "object",
                 "properties": {
@@ -1064,79 +1496,7 @@
                         "type": "string"
                     },
                     "properties": {
-                        "type": "object",
-                        "properties": {
-                            "os": {
-                                "type": "string"
-                            },
-                            "os_atch": {
-                                "type": "string"
-                            },
-                            "browser": {
-                                "type": "string"
-                            },
-                            "device": {
-                                "type": "string"
-                            },
-                            "$os": {
-                                "type": "string"
-                            },
-                            "$browser": {
-                                "type": "string"
-                            },
-                            "$device": {
-                                "type": "string"
-                            },
-                            "browser_user_agent": {
-                                "type": "string"
-                            },
-                            "browser_version": {
-                                "type": "string"
-                            },
-                            "os_version": {
-                                "type": "string"
-                            },
-                            "referrer": {
-                                "type": "string"
-                            },
-                            "referring_domain": {
-                                "type": "string"
-                            },
-                            "referrer_current": {
-                                "type": "string"
-                            },
-                            "referring_domain_current": {
-                                "type": "string"
-                            },
-                            "release_channel": {
-                                "enum": [
-                                    "canary",
-                                    "dev",
-                                    "ptb",
-                                    "stable"
-                                ],
-                                "type": "string"
-                            },
-                            "client_build_number": {
-                                "type": "integer"
-                            },
-                            "client_event_source": {
-                                "type": "string"
-                            },
-                            "client_version": {
-                                "type": "string"
-                            },
-                            "system_locale": {
-                                "type": "string"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    "intents": {
-                        "type": "number"
-                    },
-                    "presence": {
-                        "$ref": "#/components/schemas/ActivitySchema"
+                        "type": "object"
                     },
                     "compress": {
                         "type": "boolean"
@@ -1148,76 +1508,29 @@
                         "type": "integer"
                     },
                     "shard": {
+                        "type": "array",
                         "minItems": 2,
                         "maxItems": 2,
-                        "type": "array",
-                        "items": {
-                            "type": "number"
-                        }
+                        "prefixItems": [
+                            {
+                                "type": "number"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
                     },
-                    "guild_subscriptions": {
-                        "type": "boolean"
+                    "presence": {
+                        "type": "object"
+                    },
+                    "intents": {
+                        "type": "number"
                     },
                     "capabilities": {
                         "type": "integer"
                     },
                     "client_state": {
-                        "type": "object",
-                        "properties": {
-                            "guild_hashes": {},
-                            "highest_last_message_id": {
-                                "type": "integer"
-                            },
-                            "read_state_version": {
-                                "type": "integer"
-                            },
-                            "user_guild_settings_version": {
-                                "type": "integer"
-                            },
-                            "user_settings_version": {
-                                "type": "integer"
-                            },
-                            "useruser_guild_settings_version": {
-                                "type": "integer"
-                            },
-                            "private_channels_version": {
-                                "type": "integer"
-                            },
-                            "guild_versions": {},
-                            "api_code_version": {
-                                "type": "integer"
-                            },
-                            "initial_guild_id": {
-                                "type": "string"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    "clientState": {
-                        "type": "object",
-                        "properties": {
-                            "guildHashes": {},
-                            "highestLastMessageId": {
-                                "type": "integer"
-                            },
-                            "readStateVersion": {
-                                "type": "integer"
-                            },
-                            "userGuildSettingsVersion": {
-                                "type": "integer"
-                            },
-                            "useruserGuildSettingsVersion": {
-                                "type": "integer"
-                            },
-                            "guildVersions": {},
-                            "apiCodeVersion": {
-                                "type": "integer"
-                            },
-                            "initialGuildId": {
-                                "type": "string"
-                            }
-                        },
-                        "additionalProperties": false
+                        "type": "object"
                     },
                     "v": {
                         "type": "integer"
@@ -2653,6 +2966,12 @@
                             "$ref": "#/components/schemas/Channel"
                         }
                     },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Member"
+                        }
+                    },
                     "system_channel_id": {
                         "type": [
                             "null",
@@ -2727,12 +3046,6 @@
                     },
                     "presence_count": {
                         "type": "integer"
-                    },
-                    "members": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Member"
-                        }
                     },
                     "template_id": {
                         "type": "string"
@@ -3994,29 +4307,6 @@
                     "read_states"
                 ]
             },
-            "ActivitySchema": {
-                "type": "object",
-                "properties": {
-                    "afk": {
-                        "type": "boolean"
-                    },
-                    "status": {
-                        "$ref": "#/components/schemas/Status"
-                    },
-                    "activities": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Activity"
-                        }
-                    },
-                    "since": {
-                        "type": "integer"
-                    }
-                },
-                "required": [
-                    "status"
-                ]
-            },
             "ApplicationAuthorizeSchema": {
                 "type": "object",
                 "properties": {
@@ -4558,7 +4848,10 @@
                     "friend_sync": {
                         "type": "boolean"
                     },
-                    "openid_params": {}
+                    "openid_params": {
+                        "type": "object",
+                        "additionalProperties": {}
+                    }
                 },
                 "required": [
                     "state",
@@ -4911,20 +5204,6 @@
                     }
                 }
             },
-            "GuildSubscriptionsBulkSchema": {
-                "type": "object",
-                "properties": {
-                    "subscriptions": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "$ref": "#/components/schemas/GuildSubscriptionSchema"
-                        }
-                    }
-                },
-                "required": [
-                    "subscriptions"
-                ]
-            },
             "GuildSubscriptionSchema": {
                 "type": "object",
                 "properties": {
@@ -4935,15 +5214,9 @@
                             "items": {
                                 "type": "array",
                                 "items": {
-                                    "type": "integer"
+                                    "type": "number"
                                 }
                             }
-                        }
-                    },
-                    "members": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
                         }
                     },
                     "activities": {
@@ -4953,8 +5226,14 @@
                         "type": "boolean"
                     },
                     "typing": {
-                        "const": true,
-                        "type": "boolean"
+                        "type": "boolean",
+                        "const": true
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "member_updates": {
                         "type": "boolean"
@@ -4964,6 +5243,58 @@
                         "items": {}
                     }
                 }
+            },
+            "GuildSubscriptionsBulkSchema": {
+                "type": "object",
+                "properties": {
+                    "subscriptions": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object",
+                            "properties": {
+                                "channels": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                },
+                                "activities": {
+                                    "type": "boolean"
+                                },
+                                "threads": {
+                                    "type": "boolean"
+                                },
+                                "typing": {
+                                    "type": "boolean",
+                                    "const": true
+                                },
+                                "members": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "member_updates": {
+                                    "type": "boolean"
+                                },
+                                "thread_member_lists": {
+                                    "type": "array",
+                                    "items": {}
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": [
+                    "subscriptions"
+                ]
             },
             "GuildTemplateCreateSchema": {
                 "type": "object",
@@ -6163,17 +6494,13 @@
                     "guild_id": {
                         "anyOf": [
                             {
-                                "type": "array",
-                                "minItems": 1,
-                                "maxItems": 1,
-                                "prefixItems": [
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
+                                "type": "string"
                             },
                             {
-                                "type": "string"
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
                             }
                         ]
                     },
@@ -6181,7 +6508,7 @@
                         "type": "string"
                     },
                     "limit": {
-                        "type": "integer"
+                        "type": "number"
                     },
                     "presences": {
                         "type": "boolean"
@@ -6189,13 +6516,13 @@
                     "user_ids": {
                         "anyOf": [
                             {
+                                "type": "string"
+                            },
+                            {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
                                 }
-                            },
-                            {
-                                "type": "string"
                             }
                         ]
                     },
@@ -6393,7 +6720,10 @@
             "SettingsProtoUpdateJsonSchema": {
                 "type": "object",
                 "properties": {
-                    "settings": {},
+                    "settings": {
+                        "type": "object",
+                        "additionalProperties": {}
+                    },
                     "required_data_version": {
                         "type": "number"
                     }
@@ -7023,7 +7353,10 @@
                     },
                     "embeds": {
                         "type": "array",
-                        "items": {}
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                        }
                     },
                     "allowed_mentions": {
                         "type": "object",
@@ -7054,7 +7387,10 @@
                     },
                     "components": {
                         "type": "array",
-                        "items": {}
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                        }
                     },
                     "file": {
                         "type": "object",
@@ -8011,7 +8347,14 @@
                                     "items": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#/components/schemas/Activity"
+                                            "anyOf": [
+                                                {
+                                                    "type": "object"
+                                                },
+                                                {
+                                                    "type": "object"
+                                                }
+                                            ]
                                         }
                                     }
                                 },
@@ -15804,7 +16147,10 @@
                                     },
                                     "embeds": {
                                         "type": "array",
-                                        "items": {}
+                                        "items": {
+                                            "type": "object",
+                                            "additionalProperties": {}
+                                        }
                                     },
                                     "allowed_mentions": {
                                         "type": "object",
@@ -15835,7 +16181,10 @@
                                     },
                                     "components": {
                                         "type": "array",
-                                        "items": {}
+                                        "items": {
+                                            "type": "object",
+                                            "additionalProperties": {}
+                                        }
                                     },
                                     "file": {
                                         "type": "object",
@@ -16199,7 +16548,10 @@
                                     },
                                     "embeds": {
                                         "type": "array",
-                                        "items": {}
+                                        "items": {
+                                            "type": "object",
+                                            "additionalProperties": {}
+                                        }
                                     },
                                     "allowed_mentions": {
                                         "type": "object",
@@ -16230,7 +16582,10 @@
                                     },
                                     "components": {
                                         "type": "array",
-                                        "items": {}
+                                        "items": {
+                                            "type": "object",
+                                            "additionalProperties": {}
+                                        }
                                     },
                                     "file": {
                                         "type": "object",
@@ -16878,7 +17233,10 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "settings": {},
+                                    "settings": {
+                                        "type": "object",
+                                        "additionalProperties": {}
+                                    },
                                     "required_data_version": {
                                         "type": "number"
                                     }
@@ -17048,7 +17406,10 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "settings": {},
+                                    "settings": {
+                                        "type": "object",
+                                        "additionalProperties": {}
+                                    },
                                     "required_data_version": {
                                         "type": "number"
                                     }
@@ -27582,7 +27943,10 @@
                                     "friend_sync": {
                                         "type": "boolean"
                                     },
-                                    "openid_params": {}
+                                    "openid_params": {
+                                        "type": "object",
+                                        "additionalProperties": {}
+                                    }
                                 },
                                 "required": [
                                     "state",

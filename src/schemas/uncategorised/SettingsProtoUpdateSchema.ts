@@ -19,13 +19,12 @@
 import { z } from "zod";
 
 export const SettingsProtoUpdateSchema = z.object({
-    settings: z.string(),
-    required_data_version: z.number().optional(),
+	settings: z.string(),
+	required_data_version: z.number().optional(),
 });
 
-export const SettingsProtoUpdateJsonSchema = z.object({
-    settings: z.any(),
-    required_data_version: z.number().optional(),
+export const SettingsProtoUpdateJsonSchema = SettingsProtoUpdateSchema.extend({
+	settings: z.record(z.string(), z.any()),
 });
 
 export type SettingsProtoUpdateSchema = z.infer<typeof SettingsProtoUpdateSchema>;

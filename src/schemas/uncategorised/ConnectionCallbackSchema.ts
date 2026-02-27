@@ -18,12 +18,17 @@
 
 import { z } from "zod";
 
-export const ConnectionCallbackSchema = z.object({
-    code: z.string().optional(),
-    state: z.string(),
-    insecure: z.boolean(),
-    friend_sync: z.boolean(),
-    openid_params: z.any().optional(),
-});
+export const ConnectionCallbackSchema = z
+	.object({
+		code: z.string(),
+		state: z.string(),
+		insecure: z.boolean(),
+		friend_sync: z.boolean(),
+		openid_params: z.record(z.string(), z.any()),
+	})
+	.partial({
+		code: true,
+		openid_params: true,
+	});
 
 export type ConnectionCallbackSchema = z.infer<typeof ConnectionCallbackSchema>;

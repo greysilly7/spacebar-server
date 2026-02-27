@@ -20,7 +20,7 @@ import { z } from "zod";
 
 export const TemplateCreateSchema = z.object({
     name: z.string(),
-    description: z.string().nullable().optional(),
+    description: z.string().nullish(),
 });
 
 export type TemplateCreateSchema = z.infer<typeof TemplateCreateSchema>;

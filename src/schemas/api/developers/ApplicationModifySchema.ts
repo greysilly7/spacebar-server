@@ -23,7 +23,7 @@ export const ApplicationModifySchema = z.object({
     icon: z.string().optional(),
     cover_image: z.string().optional(),
     interactions_endpoint_url: z.string().optional(),
-    max_participants: z.number().nullable().optional(),
+    max_participants: z.number().nullish(),
     name: z.string().optional(),
     privacy_policy_url: z.string().optional(),
     role_connections_verification_url: z.string().optional(),

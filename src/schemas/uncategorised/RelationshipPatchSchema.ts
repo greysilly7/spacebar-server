@@ -20,7 +20,7 @@ import { z } from "zod";
 
 export const RelationshipPatchSchema = z.object({
     type: z.number().optional(),
-    nickname: z.string().nullable().optional(),
+    nickname: z.string().nullish(),
 });
 
 export type RelationshipPatchSchema = z.infer<typeof RelationshipPatchSchema>;

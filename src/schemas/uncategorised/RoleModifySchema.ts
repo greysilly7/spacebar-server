@@ -30,8 +30,8 @@ export const RoleModifySchema = z
         unicode_emoji: z.string(),
         colors: z.object({
             primary_color: z.number(),
-            secondary_color: z.number().nullable().optional(),
-            tertiary_color: z.number().nullable().optional(),
+            secondary_color: z.number().nullish(),
+            tertiary_color: z.number().nullish(),
         }),
     })
     .partial();

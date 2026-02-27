@@ -20,10 +20,10 @@ import { z } from "zod";
 
 export const UserProfileModifySchema = z.object({
     bio: z.string().optional(),
-    accent_color: z.number().nullable().optional(),
-    banner: z.string().nullable().optional(),
+    accent_color: z.number().nullish(),
+    banner: z.string().nullish(),
     pronouns: z.string().optional(),
-    theme_colors: z.array(z.number()).nullable().optional(),
+    theme_colors: z.array(z.number()).nullish(),
 });
 
 export type UserProfileModifySchema = z.infer<typeof UserProfileModifySchema>;

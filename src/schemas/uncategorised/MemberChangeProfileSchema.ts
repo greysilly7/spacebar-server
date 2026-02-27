@@ -19,11 +19,11 @@
 import { z } from "zod";
 
 export const MemberChangeProfileSchema = z.object({
-    nick: z.string().nullable().optional(),
+    nick: z.string().nullish(),
     bio: z.string().optional(),
-    banner: z.string().nullable().optional(),
+    banner: z.string().nullish(),
     pronouns: z.string().optional(),
-    theme_colors: z.array(z.number()).nullable().optional(),
+    theme_colors: z.array(z.number()).nullish(),
 });
 
 export type MemberChangeProfileSchema = z.infer<typeof MemberChangeProfileSchema>;

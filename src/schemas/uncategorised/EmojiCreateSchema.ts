@@ -21,7 +21,7 @@ import { z } from "zod";
 export const EmojiCreateSchema = z.object({
     name: z.string().optional(),
     image: z.string(),
-    require_colons: z.boolean().nullable().optional(),
+    require_colons: z.boolean().nullish(),
     roles: z.array(z.string()).optional(),
 });
 

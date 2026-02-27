@@ -19,39 +19,45 @@
 import { z } from "zod";
 import { MessageCreateAttachment, MessageCreateCloudAttachment, PollCreationSchema } from "./MessageCreateSchema";
 
-export const WebhookExecuteSchema = z.object({
-    content: z.string().optional(),
-    username: z.string().optional(),
-    avatar_url: z.string().optional(),
-    tts: z.boolean().optional(),
-    embeds: z.array(z.any()).optional(),
-    allowed_mentions: z
-        .object({
-            parse: z.array(z.string()).optional(),
-            roles: z.array(z.string()).optional(),
-            users: z.array(z.string()).optional(),
-            replied_user: z.boolean().optional(),
-        })
-        .optional(),
-    components: z.array(z.any()).optional(),
-    file: z.object({ filename: z.string() }).optional(),
-    payload_json: z.string().optional(),
-    attachments: z.array(MessageCreateAttachment).optional(),
-    flags: z.number().optional(),
-    thread_name: z.string().optional(),
-    applied_tags: z.array(z.string()).optional(),
-    message_reference: z
-        .object({
-            message_id: z.string(),
-            channel_id: z.string().optional(),
-            guild_id: z.string().optional(),
-            fail_if_not_exists: z.boolean().optional(),
-        })
-        .optional(),
-    sticker_ids: z.array(z.string()).optional(),
-    nonce: z.string().optional(),
-    enforce_nonce: z.boolean().optional(),
-    poll: PollCreationSchema.optional(),
-});
+export const WebhookExecuteSchema = z
+    .object({
+        content: z.string(),
+        username: z.string(),
+        avatar_url: z.string(),
+        tts: z.boolean(),
+        embeds: z.array(z.record(z.string(), z.any())),
+        allowed_mentions: z
+            .object({
+                parse: z.array(z.string()),
+                roles: z.array(z.string()),
+                users: z.array(z.string()),
+                replied_user: z.boolean(),
+            })
+            .partial(),
+        components: z.array(z.record(z.string(), z.any())),
+        file: z.object({ filename: z.string() }),
+        payload_json: z.string(),
+        attachments: z.array(MessageCreateAttachment),
+        flags: z.number(),
+        thread_name: z.string(),
+        applied_tags: z.array(z.string()),
+        message_reference: z
+            .object({
+                message_id: z.string(),
+                channel_id: z.string(),
+                guild_id: z.string(),
+                fail_if_not_exists: z.boolean(),
+            })
+            .partial({
+                channel_id: true,
+                guild_id: true,
+                fail_if_not_exists: true,
+            }),
+        sticker_ids: z.array(z.string()),
+        nonce: z.string(),
+        enforce_nonce: z.boolean(),
+        poll: PollCreationSchema,
+    })
+    .partial();
 
 export type WebhookExecuteSchema = z.infer<typeof WebhookExecuteSchema>;

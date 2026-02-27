@@ -20,7 +20,7 @@ import { z } from "zod";
 
 export const WebhookUpdateSchema = z.object({
     name: z.string().optional(),
-    avatar: z.string().nullable().optional(),
+    avatar: z.string().nullish(),
     channel_id: z.string().optional(),
 });
 

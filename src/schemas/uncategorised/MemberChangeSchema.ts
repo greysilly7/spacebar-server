@@ -20,9 +20,9 @@ import { z } from "zod";
 
 export const MemberChangeSchema = z.object({
     roles: z.array(z.string()).optional(),
-    nick: z.string().nullable().optional(),
-    avatar: z.string().nullable().optional(),
-    communication_disabled_until: z.string().nullable().optional(),
+    nick: z.string().nullish(),
+    avatar: z.string().nullish(),
+    communication_disabled_until: z.string().nullish(),
     flags: z.number().optional(),
 });
 

@@ -29,8 +29,8 @@ const PermissionOverwriteSchema = z.object({
 const TagCreateBaseSchema = z.object({
     name: z.string(),
     moderated: z.boolean().optional(),
-    emoji_id: z.string().nullable().optional(),
-    emoji_name: z.string().nullable().optional(),
+    emoji_id: z.string().nullish(),
+    emoji_name: z.string().nullish(),
 });
 
 export const ChannelModifySchema = z

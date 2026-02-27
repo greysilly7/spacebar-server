@@ -20,7 +20,7 @@ import { z } from "zod";
 
 export const TemplateModifySchema = z.object({
     name: z.string().optional(),
-    description: z.string().nullable().optional(),
+    description: z.string().nullish(),
 });
 
 export type TemplateModifySchema = z.infer<typeof TemplateModifySchema>;

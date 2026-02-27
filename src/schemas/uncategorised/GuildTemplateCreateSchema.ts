@@ -20,7 +20,7 @@ import { z } from "zod";
 
 export const GuildTemplateCreateSchema = z.object({
     name: z.string(),
-    icon: z.string().nullable().optional(),
+    icon: z.string().nullish(),
 });
 
 export type GuildTemplateCreateSchema = z.infer<typeof GuildTemplateCreateSchema>;

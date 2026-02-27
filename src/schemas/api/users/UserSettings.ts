@@ -32,10 +32,10 @@ const FriendSourceFlagsSchema = z.object({
 });
 
 const GuildFolderSchema = z.object({
-    color: z.number().nullable().optional(),
+    color: z.number().nullish(),
     guild_ids: z.array(z.string()),
-    id: z.number().nullable().optional(),
-    name: z.string().nullable().optional(),
+    id: z.number().nullish(),
+    name: z.string().nullish(),
 });
 
 export const UserSettingsSchema = z.object({

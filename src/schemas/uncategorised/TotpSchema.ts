@@ -21,8 +21,8 @@ import { z } from "zod";
 export const TotpSchema = z.object({
     code: z.string(),
     ticket: z.string(),
-    gift_code_sku_id: z.string().nullable().optional(),
-    login_source: z.string().nullable().optional(),
+    gift_code_sku_id: z.string().nullish(),
+    login_source: z.string().nullish(),
 });
 
 export type TotpSchema = z.infer<typeof TotpSchema>;
