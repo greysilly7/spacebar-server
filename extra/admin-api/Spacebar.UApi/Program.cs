@@ -8,6 +8,7 @@ using Spacebar.ConfigModel.Extensions;
 using Spacebar.Interop.Authentication;
 using Spacebar.Interop.Authentication.AspNetCore;
 using Spacebar.Models.Db.Contexts;
+using Spacebar.Models.Generic.Constants;
 using Spacebar.UApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -59,6 +60,7 @@ builder.Services.AddSingleton<SpacebarAuthenticationConfiguration>();
 builder.Services.AddScoped<SpacebarAuthenticationService>();
 builder.Services.AddScoped<SpacebarAspNetAuthenticationService>();
 builder.Services.AddScoped<TemplateImportService>();
+builder.Services.AddScoped<PermissionService>();
 
 var app = builder.Build();
 

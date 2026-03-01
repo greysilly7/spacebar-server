@@ -44,11 +44,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771973132,
-        "narHash": "sha256-u6yRmdUoleHzCTxG19O879hbqw3/N0PVVDsfVzZd2HM=",
+        "lastModified": 1772089711,
+        "narHash": "sha256-N4XQECQRWDirbf4mrZ0w5eCKPO5o2yNZv4LwW5SS4j0=",
         "owner": "spacebarchat",
         "repo": "pion-webrtc",
-        "rev": "afd11d2c7c8f571296b8e21f52cf341bd2f94160",
+        "rev": "d18098fd78687a2864ea8e696596d412889f9250",
         "type": "github"
       },
       "original": {
